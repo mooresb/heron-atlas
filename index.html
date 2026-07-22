@@ -1030,6 +1030,7 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
             <h1 class="font-display-lg text-[46px] leading-[1.02] text-primary">Herons of the World</h1>
           </div>
           <p class="font-body-md text-xs text-on-surface-variant/90 leading-relaxed">Every heron species, mapped to <span class="text-on-surface">each place it occurs</span>. Each dot is a species in one country, coloured by IUCN Red List status and sized by how many species share that location.</p>
+          <p class="font-data-label text-[11px] uppercase tracking-wider text-primary-fixed-dim mt-3">GBIF occurrence records · 2006–2025</p>
         </div>
         <div class="order-2 lg:order-none glass p-5 rounded-2xl">
           <label for="species-filter" class="font-data-label text-[10px] uppercase tracking-wider text-outline block mb-2">Find a species on the map</label>
@@ -1325,9 +1326,9 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
             <div class="ver-chips absolute bottom-3 left-3 z-20" data-id="${s.id}"></div>
           </div>
           <div class="p-4 relative">
-            <div class="flex justify-between items-start gap-2 mb-3">
-              <div class="min-w-0"><h3 class="font-display-lg text-[19px] text-primary mb-0.5 leading-tight truncate">${s.commonName}</h3><p class="font-data-label text-[12px] text-on-surface-variant italic truncate">${s.scientificName}</p></div>
-              <button type="button" data-spot="${s.id}" title="Click to see ${s.commonName} in the Spotlight" aria-label="See ${s.commonName} in Spotlight" class="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-primary-fixed-dim/40 px-2.5 py-1 hover:bg-primary-fixed-dim/10 transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-primary-fixed-dim"></span><span class="font-data-label text-[10px] uppercase tracking-wide text-primary-fixed-dim">Spotlight</span></button>
+            <div class="mb-3">
+              <div class="min-w-0"><h3 class="font-display-lg text-[19px] text-primary mb-0.5 leading-tight">${s.commonName}</h3><p class="font-data-label text-[12px] text-on-surface-variant italic">${s.scientificName}</p></div>
+              <button type="button" data-spot="${s.id}" title="Click to see ${s.commonName} in the Spotlight" aria-label="See ${s.commonName} in Spotlight" class="mt-2 inline-flex items-center gap-1.5 rounded-full border border-primary-fixed-dim/40 px-2.5 py-1 hover:bg-primary-fixed-dim/10 transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px] text-primary-fixed-dim"></span><span class="font-data-label text-[10px] uppercase tracking-wide text-primary-fixed-dim">Spotlight</span></button>
             </div>
             <div class="grid grid-cols-2 gap-x-5 gap-y-2 pt-3 border-t border-white/5">
               ${dp('Length', window.Ulen(s.lengthCm))}
