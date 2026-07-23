@@ -924,7 +924,7 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
   body.theme-light .text-primary-fixed, body.theme-light .text-primary-fixed-dim { color:#00795c !important; }
   body.theme-light .text-secondary, body.theme-light .text-secondary-fixed-dim { color:#9a3fbf !important; }
   body.theme-light .glass, body.theme-light .glass-panel, body.theme-light .glass-card { background:rgba(255,255,255,0.86) !important; border-color:rgba(20,30,40,0.12) !important; box-shadow:0 2px 22px rgba(20,30,40,0.07); }
-  body.theme-light header, body.theme-light aside { background:rgba(248,250,251,0.92) !important; border-color:rgba(20,30,40,0.1) !important; }
+  body.theme-light header.fixed, body.theme-light aside { background:rgba(248,250,251,0.92) !important; border-color:rgba(20,30,40,0.1) !important; }
   body.theme-light footer { background:rgba(255,255,255,0.7) !important; }
   body.theme-light [class*="border-white/"] { border-color:rgba(20,30,40,0.1) !important; }
   body.theme-light [class*="bg-surface-container"] { background:#f1f4f6 !important; color:#18202a; }
@@ -1039,7 +1039,7 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
         <div class="order-5 lg:order-none glass rounded-2xl relative overflow-hidden">
           <button id="sod-toggle" aria-expanded="true" class="w-full flex items-center justify-between gap-2 px-5 py-4 text-left hover:bg-white/5 transition-colors">
             <span class="font-data-label text-primary-fixed-dim">SPECIES OF THE DAY</span>
-            <span class="flex items-center gap-1 text-on-surface-variant"><span id="sod-toggle-label" class="font-data-label text-[10px] uppercase">Minimize</span><span id="sod-toggle-icon" class="material-symbols-outlined text-[20px] leading-none"></span></span>
+            <span class="flex items-center gap-1 text-on-surface-variant"><span id="sod-toggle-label" class="font-data-label text-[10px] uppercase">Minimize</span><span id="sod-toggle-icon" class="material-symbols-outlined text-[20px] leading-none transition-transform duration-200"></span></span>
           </button>
           <div id="sod-body" class="px-5 pb-5">
             <div id="atlas-featured"></div>
@@ -1086,9 +1086,9 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
   <div class="px-margin-mobile md:px-margin-desktop py-10">
     <!-- Header: page title (the species picker lives beside the heron name in the hero, below) -->
     <div class="relative flex gap-3 items-stretch mb-8">
-      <div class="w-1.5 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent shrink-0 hidden md:block"></div>
+      <div class="w-1.5 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent shrink-0"></div>
       <div>
-        <h2 class="font-display-lg text-display-lg text-primary mb-2 leading-[1.02]">Species Spotlight</h2>
+        <h2 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-2 leading-[1.02]">Species Spotlight</h2>
         <p class="text-on-surface-variant max-w-xl text-[15px]">Pick any of the 68 herons. Every figure is a real dataset value; &ldquo;&mdash;&rdquo; means genuinely unrecorded.</p>
       </div>
     </div>
@@ -1141,8 +1141,8 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
 <section id="screen-gallery" class="screen">
   <div class="px-margin-mobile md:px-margin-desktop py-12">
     <header class="max-w-container-max mx-auto mb-16 relative">
-      <div class="absolute -left-12 top-0 w-1.5 h-32 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent opacity-90 hidden md:block"></div>
-      <h2 class="font-display-lg text-display-lg text-primary mb-4">Species Gallery: Final Ardeidae Collection</h2>
+      <div class="absolute left-0 md:-left-12 top-2 md:top-0 w-1.5 h-16 md:h-32 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent opacity-90"></div>
+      <h2 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-4 pl-4 md:pl-0">Species Gallery: Final Ardeidae Collection</h2>
       <p class="text-on-surface-variant font-body-md leading-relaxed">Explore our curated collection of Ardeidae from around the globe, captured with cinematic precision. Immerse yourself in the spectral beauty of these master hunters.</p>
       <div class="glass rounded-2xl px-4 py-3 mt-6 flex items-start gap-3">
         <span class="material-symbols-outlined text-secondary-fixed-dim shrink-0" style="font-size:20px"></span>
@@ -1175,7 +1175,7 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
      <!-- Header: title + density stat -->
      <div class="flex flex-col md:flex-row justify-between items-start gap-6 mb-10">
        <div class="max-w-xl relative flex gap-3 items-stretch">
-         <div class="w-1.5 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent shrink-0 hidden md:block"></div>
+         <div class="w-1.5 rounded-full bg-gradient-to-b from-primary-fixed via-secondary to-transparent shrink-0"></div>
          <div>
          <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-3 leading-[1.05]">Citations &amp; Data Sources</h1>
          <p class="text-on-surface-variant text-[17px] leading-relaxed mb-5">Every figure and image in the atlas traces to a cited source below; blanks mean a value is genuinely unrecorded — never invented.</p>
@@ -1502,7 +1502,7 @@ L.HeatLayer=(L.Layer?L.Layer:L.Class).extend({initialize:function(t,i){this._lat
       const collapsed = sodB.style.display === 'none';
       sodB.style.display = collapsed ? '' : 'none';
       sodT.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
-      if (sodIcon) sodIcon.textContent = collapsed ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
+      if (sodIcon) sodIcon.style.transform = collapsed ? 'rotate(0deg)' : 'rotate(180deg)';
       if (sodLabel) sodLabel.textContent = collapsed ? 'Minimize' : 'Show';
     });
   })();
